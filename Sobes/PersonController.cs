@@ -11,6 +11,7 @@ namespace Sobes
 {
     public class PersonController
     {
+        //Создание списка пользователей
         public List<Person> personList = new List<Person>();
 
 
@@ -25,6 +26,7 @@ namespace Sobes
         }
 
         
+        //Загрузка пользователей
         public List<Person> Load()
         {
             var serializer = new BinaryFormatter();

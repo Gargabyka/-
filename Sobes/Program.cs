@@ -10,14 +10,11 @@ namespace Sobes
     {
         static void Main(string[] args)
         {
-            //List<Person> personList = new List<Person>();
+
             var person = new PersonController();
-
             bool condition = true;
-
             int num = 0;
 
-            Console.WriteLine("Создание пользователей учебного цента\n");
             while (condition)
             {
                 Console.Clear();
@@ -60,6 +57,7 @@ namespace Sobes
 
         }
 
+        //Создание пользователя
         static void CreationPerson(int n, List<Person> personList)
         {
             var personController = new PersonController();
@@ -243,6 +241,7 @@ namespace Sobes
 
         }             
         
+        //Поиск пользователя
         static void FindPerson(List<Person> personList)
         {
             Console.Clear();
@@ -326,8 +325,10 @@ namespace Sobes
             }
         }
 
+        //Начальная информация
         static void Info(out int num)
         {
+            Console.WriteLine("Создание пользователей учебного цента\n");
             Console.WriteLine("Выберете раздел...");
             Console.WriteLine("1)Создание администратора");
             Console.WriteLine("2)Создание студента");
@@ -349,6 +350,7 @@ namespace Sobes
             }
         }
 
+        //Проверка даты
         private static DateTime ParseDateTime()
         {
             DateTime birthDate;
