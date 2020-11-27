@@ -49,7 +49,7 @@ namespace Sobes
                         break;
 
                     case (6):                       
-                        person.Load();
+                        person.personList = person.Load();
                         break;
                     case (7):
                         Console.WriteLine("До свидания........");
@@ -62,6 +62,7 @@ namespace Sobes
 
         static void CreationPerson(int n, List<Person> personList)
         {
+            var personController = new PersonController();
             Console.Write("Введите фамилию:");
             var surName = Console.ReadLine();
             var dateBirthday = ParseDateTime();
@@ -99,6 +100,7 @@ namespace Sobes
                     Console.ReadKey();
                     Console.Clear();
                 }
+                personController.Save(personList);
             }
 
             //Студент
@@ -141,6 +143,7 @@ namespace Sobes
                 {
                     Console.Clear();
                 }
+                personController.Save(personList);
             }
 
             //Преподаватель
@@ -187,6 +190,7 @@ namespace Sobes
                 {
                     Console.Clear();
                 }
+                personController.Save(personList);
             }
 
 
@@ -234,6 +238,7 @@ namespace Sobes
                 {
                     Console.Clear();
                 }
+                personController.Save(personList);
             }
 
         }             
@@ -252,20 +257,71 @@ namespace Sobes
                 {
                     Console.WriteLine($"\n{p}\n");
                 }
+
+                Console.WriteLine("Для продолжения нажмите любую клавишу....");
+                Console.ReadKey();
             }
 
             if (temp == 2)
             {
                 Console.Clear();
-                int age;
-                Console.WriteLine("Введите возраст:");
-                age = Int32.Parse(Console.ReadLine());
-                foreach (Person p in personList)
+                int age, num;
+                Console.WriteLine("1)Поиск пользователей старше n-возраста");
+                Console.WriteLine("2)Поиск пользователей младше n-возраста");
+                Console.WriteLine("3)Поиск пользователей равной n-возраста");
+
+                num = Int32.Parse(Console.ReadLine());
+                if(num > 3 || num < 1)
                 {
-                    if (p.Age(p.BrithDate) > age)
+                    Console.WriteLine("Ошибка. Такого раздела не существует");
+                    Console.WriteLine("Нажмите любую кнопку для продолжения");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+
+                if (num == 1)
+                {
+                    Console.WriteLine("Введите возраст:");
+                    age = Int32.Parse(Console.ReadLine());
+                    foreach (Person p in personList)
                     {
-                        Console.WriteLine($"\n{p}\n");
+                        if (p.Age(p.BrithDate) > age)
+                        {
+                            Console.WriteLine($"\n{p}\n");
+                        }
                     }
+                    Console.WriteLine("Для продолжения нажмите любую клавишу....");
+                    Console.ReadKey();
+                }
+
+                if (num == 2)
+                {
+                    Console.WriteLine("Введите возраст:");
+                    age = Int32.Parse(Console.ReadLine());
+                    foreach (Person p in personList)
+                    {
+                        if (p.Age(p.BrithDate) < age)
+                        {
+                            Console.WriteLine($"\n{p}\n");
+                        }
+                    }
+                    Console.WriteLine("Для продолжения нажмите любую клавишу....");
+                    Console.ReadKey();
+                }
+
+                if (num == 3)
+                {
+                    Console.WriteLine("Введите возраст:");
+                    age = Int32.Parse(Console.ReadLine());
+                    foreach (Person p in personList)
+                    {
+                        if (p.Age(p.BrithDate) == age)
+                        {
+                            Console.WriteLine($"\n{p}\n");
+                        }
+                    }
+                    Console.WriteLine("Для продолжения нажмите любую клавишу....");
+                    Console.ReadKey();
                 }
             }
         }

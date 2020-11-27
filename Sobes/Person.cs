@@ -49,5 +49,10 @@ namespace Sobes
             }
             return age;
         }
+
+        public Person()
+        {
+
+        }
     }
 }

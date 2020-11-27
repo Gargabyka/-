@@ -25,20 +25,22 @@ namespace Sobes
                 throw new ArgumentNullException("Факультет не может быть пустым", nameof(faculty));
             }
 
-            if (experience < Age(brithDate) - 18 || experience < 0)
-            {
-                throw new ArgumentException("Неверно указан стаж", nameof(experience));
-            }
 
             SurName = surname;
             Faculty = faculty;
             Position = position;
+
+            if (!(experience < Age(BrithDate) && experience > 0))
+            {
+                throw new ArgumentException("Неверно указан стаж", nameof(experience));
+            }
+
             Experience = experience;
         }
 
         public override string ToString()
         {
-            return $"{base.ToString()}\nФакультет:{Faculty}\nДолжность:{Position}\nСтаж:{Experience}";
+            return $"{base.ToString()}\nДолжность:{Position}\nСтаж:{Experience}";
         }
 
         public void GetAction()

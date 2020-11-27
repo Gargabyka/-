@@ -11,6 +11,10 @@ namespace Sobes
     [Serializable]
     class Administrator : Person, IEmployee
     {
+        public Administrator()
+        {
+
+        }
         public Administrator(string surname, DateTime brithDate, string faculty) : base(surname, brithDate, faculty)
         {
             SurName = surname;

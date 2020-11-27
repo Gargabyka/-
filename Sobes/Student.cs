@@ -25,7 +25,7 @@ namespace Sobes
 
         public override string ToString()
         {
-            return $"{base.ToString()}\nФакультет:{Faculty}\nКурс:{Course}";
+            return $"{base.ToString()}\nКурс:{Course}";
         }
 
         public void GetAction()
