@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Sobes
 {
     [Serializable]
-    class Teacher : Person, IEmployee
+    public class Teacher : Person, IEmployee
     {
         public string Position { get; set; }
         public int Experience { get; set; }
@@ -25,16 +25,14 @@ namespace Sobes
                 throw new ArgumentNullException("Факультет не может быть пустым", nameof(faculty));
             }
 
-
-            SurName = surname;
-            Faculty = faculty;
-            Position = position;
-
-            if (!(experience < Age(BrithDate) && experience > 0))
+            if (!(experience < Age(BrithDate) - 18 && experience > 0))
             {
                 throw new ArgumentException("Неверно указан стаж", nameof(experience));
             }
 
+            SurName = surname;
+            Faculty = faculty;
+            Position = position;
             Experience = experience;
         }
 
@@ -49,9 +47,8 @@ namespace Sobes
             Thread.Sleep(1500);
             Console.WriteLine("Ага............");
             Thread.Sleep(600);
-            int time = DateTime.Now.Hour;
 
-            if(time > 8 && time < 18)
+            if(DateTime.Now.Hour > 8 && DateTime.Now.Hour < 18)
             {
                 Console.WriteLine("Пора дармоедам преподавать науку!!!");
             }

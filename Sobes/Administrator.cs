@@ -9,7 +9,7 @@ namespace Sobes
 {
 
     [Serializable]
-    class Administrator : Person, IEmployee
+    public class Administrator : Person, IEmployee
     {
         public Administrator()
         {

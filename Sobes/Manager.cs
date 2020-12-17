@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Sobes
 {
     [Serializable]
-    class Manager : Person, IEmployee
+    public class Manager : Person, IEmployee
     {
 
         public string Position { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Sobes
 {
     [Serializable]
-    class Student : Person, IEmployee
+    public class Student : Person, IEmployee
     {
         public int Course { get; set; }
         public Student(string surname, DateTime brithDate, string faculty,int course) : base(surname, brithDate, faculty)
